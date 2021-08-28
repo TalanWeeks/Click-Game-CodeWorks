@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
+  <title>Moon Miner</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assests/styles/style.css">
 </head>
 
+<!-- NOTE debugger -->
 <style>
   /* This is for wire framing to see our rows/columns */
   body.debug .container,
@@ -27,7 +28,8 @@
   }
 </style>
 
-<body class="debug">
+<!-- NOTE start of code -->
+<body class="debug container-fluid">
 
   <header>
     <div class="row">
@@ -40,12 +42,47 @@
 
   <main>
     <div class="row">
-      <div class="col-md-4">
-        <img class="shadow" onclick="helloWorld()" src="https://th.bing.com/th/id/OIP.V5aM6CGMBDbwKMZ8HUmDDAHaE0?pid=ImgDet&rs=1s" alt="">
+      <div class="col-md-5">
+        <img class="shadow" onclick="helloWorld()" src="https://th.bing.com/th/id/OIP.i2OC9aeLBQUc5rKqwsAsAQHaHL?pid=ImgDet&w=471&h=457&rs=1" alt="">
       </div>
-      <button onclick="helloWorld()">click me</button>
+
+      <div class="col-md-2"></div>
+
+      <div class="col-md-5 purchases-scroll">
+        <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore dolores debitis autem ullam, tempora doloremque quisquam! Numquam, illum! Nihil quae doloribus commodi est similique sed, ea voluptates itaque possimus reiciendis.
+        Corporis illum, eveniet eligendi provident iste consectetur consequatur molestiae voluptatum quisquam corrupti dolorem, laborum ut dolor minima placeat, cupiditate laudantium. Sint ex blanditiis esse, nostrum libero modi unde explicabo quisquam!
+       </h2>        
+      </div>
     </div>
 
+    <div class="row mt-4">
+      <div class="col-12 inventory-scroll">
+        <div class="row my-1">
+          <div class="col-6">
+            <h3>Current Cheese Total: <span id="current-cheese-total"></span></h3>
+          </div>
+          <div class="col-6">
+            <h3>Current Pick Style: <span id="current-pick-style"></span></h3>
+          </div>
+        </div>        
+        <div class="row my-1">
+          <div class="col-6">
+            <h3>Current Cart Total: <span id="current-cart-total"></span></h3>
+          </div>
+          <div class="col-6">
+            <h3>Current Cart Style: <span id="current-cart-style"></span></h3>
+          </div>
+        </div>        
+        <div class="row my-1">
+          <div class="col-6">
+            <h3>Current Rover Total: <span id="current-rover-total"></span></h3>
+          </div>
+          <div class="col-6">
+            <h3>Current Rover Style: <span id="current-rover-style"></span></h3>
+          </div>
+        </div>     
+      </div>
+    </div>
 
   </main>
 
