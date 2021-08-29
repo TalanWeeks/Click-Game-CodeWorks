@@ -73,12 +73,12 @@ function startGame(){
   updateInventory()
 }
 function mineCheese(){
-  totalCheeseEarned += 1
+  
   currentCheeseMined +=1
   currentCartTotal += 1
   console.log(currentCheeseMined)
   critClick()
-  roverCartDump()
+  
   updateInventory()
 }
 
@@ -88,11 +88,11 @@ function critClick(){
   let randomNum = Math.floor(Math.random()*10)
   if (randomNum >= 7) {
     currentCheeseMined += 5
-    totalCheeseEarned += 5
+    
     currentCartTotal += 5
     console.log("critical click!")
   }
-  console.log(randomNum)
+  
 }
 
 // checks what cart upgrade we currently have SECTION
@@ -115,22 +115,32 @@ function critClick(){
 // }
 
 function buyRover(){
-  currentRoverTotal = 0
-  if (totalCheeseEarned < 100){
+  
+  // NOTE change back to 100
+  if (currentCheeseMined < 100){
     alert("insufficient cheese funds to buy this upgrade")
-  } else if (totalCheeseEarned >= 100){
-    currentRoverTotal += 1}
-    console.log("amount of rovers", currentRoverTotal)
-  roverCartDump()
+  } else if (currentCheeseMined >= 100){
+    currentCheeseMined -= 100
+    console.log(currentCheeseMined)
+    currentRoverTotal ++
+    startRoverTimer()
   }
-function roverCartDump(){
-  if (currentRoverTotal >= 1){
-    setInterval(() => {
-      currentCartTotal = currentCartTotal-(currentRoverTotal*100);
-    }, 10000);
-    
-  } 
+    document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
+    document.getElementById('current-rover-total').innerHTML = currentRoverTotal; 
+  
+  }
+
+
+function startRoverTimer(){
+  setInterval(roverCartDump,15000)
 }
+  function roverCartDump(){   
+    currentCartTotal -= (currentRoverTotal*100)
+    totalCheeseEarned += (currentRoverTotal*100)
+    document.getElementById('current-cart-total').innerHTML = currentCartTotal;
+    console.log("current rover total",currentRoverTotal)
+  } 
+
 function updateInventory(){
   
   // @ts-ignore
