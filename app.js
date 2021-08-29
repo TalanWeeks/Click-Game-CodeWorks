@@ -113,7 +113,7 @@ function buyDumpTruck(){
 }
 
 function buyRover(){ 
-  let roverPrice = 1000 
+  let roverPrice = 600 
   if (totalCheeseEarned < roverPrice){
     alert("insufficient cheese funds to buy this upgrade")
   } else if (totalCheeseEarned >= roverPrice){
@@ -216,12 +216,27 @@ function cartStyleStatus(){
 
 
 function startRoverTimer(){
-  if(currentRoverTotal>2){
+    
+  
+   if(currentRoverTotal>4){
     setInterval(unloadCart,8000)
+    document.getElementById("rover-price").innerText = '3600'
+   }
+   else if(currentRoverTotal>3){
+    setInterval(unloadCart,8000)
+    document.getElementById("rover-price").innerText = '3000'
+   }
+   else if(currentRoverTotal>2){
+    setInterval(unloadCart,8000)
+    document.getElementById("rover-price").innerText = '2400'
+
   } else if (currentRoverTotal >1){
     setInterval(unloadCart,15000)
+    document.getElementById("rover-price").innerText = '1800'
+
   } else if (currentRoverTotal >0){
     setInterval(unloadCart,20000)
+    document.getElementById("rover-price").innerText = '1200'
   }
   console.log("current rover total", currentRoverTotal)
 }
