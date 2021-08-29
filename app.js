@@ -39,12 +39,12 @@ let cartUpgrades = {
   mineCart: {
     name:'Mine Cart',
     cost: 100,
-    quantity: 100,
+    quantity: 150,
   },
   dumpTruck: {
     name:'Dump Truck',
     cost:400,
-    quantity: 200,
+    quantity: 500,
   }
 }
 
@@ -78,7 +78,7 @@ function mineCheese(){
   currentCartTotal += 1
 
   critClick()
-  
+  cartStyleStatus()
   updateInventory()
 }
 
@@ -135,6 +135,18 @@ function buyPickAxe(){
     alert("insufficient cheese funds to buy this upgrade")
   } else if (totalCheeseEarned >= 50){
     totalCheeseEarned -= 50
+    document.getElementById('current-click-style').innerText= clickUpgrades.pickAxe.name;
+  }
+  updateInventory()
+}
+
+function buySuperSaiyanMode(){
+  if (totalCheeseEarned < 400){
+    alert("insufficient cheese funds to buy this upgrade")
+  } else if (totalCheeseEarned >= 400){
+    totalCheeseEarned -= 400
+    document.getElementById('current-click-style').innerText= clickUpgrades.superSaiyan.name;
+
   }
   updateInventory()
 }
@@ -150,7 +162,13 @@ function cartStyleStatus(){
     maxCartValue = cartUpgrades.bucket.quantity
   }
   console.log("max cart value", maxCartValue)
+  if (maxCartValue < currentCartTotal){
+    currentCheeseMined --
+    currentCartTotal --
+    alert("You must empty your cart to keep mining!")
+  }
 }
+
 
  function unloadCart(){
    let cartAmount = currentCartTotal
