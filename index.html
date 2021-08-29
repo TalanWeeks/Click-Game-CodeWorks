@@ -6,7 +6,7 @@
   <title>Moon Miner</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assests/styles/style.css">
 </head>
@@ -34,25 +34,27 @@
 
   <header>
     <div class="row text-light">
-      <div class="col-12 text-center py-4 text-primary">
-        <h2>MOON MINER</h2>
+      <div class="col-12 text-center py-4 my-3 text-primary">
+        <h1>MOON MINER</h1>
       </div>
     </div>
   </header>
 
 <!-- Purchase Upgrade SECTION -->
   <main>
-    <div class="row mb-4 text-light">
-      <div class="col-md-1"></div>
-      <div class="col-md-5 ">
-        <img class="moon-img" onclick="mineCheese()" src="https://th.bing.com/th/id/OIP.i2OC9aeLBQUc5rKqwsAsAQHaHL?pid=ImgDet&w=471&h=457&rs=1" alt="">
-      </div>
-
-      <div class="col-md-1"></div>
-
-      <div class="col-md-4 purchases-scroll border border-primary">
-
-        <div class="row justify-content-center text-light">
+      <div class="row mb-4 text-light visually-hidden"id="purchase-inventory">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 ">
+          <img class="moon-img" onclick="mineCheese()" src="https://th.bing.com/th/id/OIP.i2OC9aeLBQUc5rKqwsAsAQHaHL?pid=ImgDet&w=471&h=457&rs=1" alt="">
+        </div>
+        
+        <div class="col-md-1">
+          
+        </div>
+        
+        <div class="col-md-4 purchases-scroll border border-primary">
+          
+        <div class="row justify-content-center text-primary">
           <div class="col-12 my-2 text-center">
             <h2 class="border border-primary">Purchase Upgrades</h2>
           </div>
@@ -68,16 +70,16 @@
               <h5 class="text-primary">Pick Axe</h5>
               <p>+5 cheese per click</p>
               <h6>Cheese Required:10</h6>
-              <button>Buy</button>
+              <button class="bg-dark text-light">Buy</button>
             </div>
           </div>        
-
+          
           <div class="col-md-5 py-2 my-2">
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Super Saiyan Mode</h5>
               <p>+20 cheese per click</p>
               <h6>Cheese Required:50</h6>
-              <button>Buy</button>
+              <button class="bg-dark text-light">Buy</button>
             </div>
           </div>
         </div>
@@ -92,20 +94,20 @@
               <h5 class="text-primary">Mine Cart</h5>
               <p> Holds 150 cheese</p>
               <h6>Cheese Required:100</h6>
-              <button>Buy</button>
+              <button class="bg-dark text-light">Buy</button>
             </div>
           </div>        
-
+          
           <div class="col-md-5 py-2 my-2">
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Dump Truck</h5>
               <p>Holds 500 cheese</p>
               <h6>Cheese Required:400</h6>
-              <button>Buy</button>
+              <button class="bg-dark text-light">Buy</button>
             </div>
           </div>
         </div>
-
+        
         <div class="row">
           <div class="col-12 my-2 text-center">
             <h3>Purchase Rovers</h3>
@@ -117,43 +119,62 @@
               <h5 class="text-primary">Auto Rover</h5>
               <p>auto dumps cheese container</p>
               <h6>Cheese Required:100</h6>
-              <button>Buy</button>
+              <button class="bg-dark text-light">Buy</button>
             </div>
           </div> 
-        
+          
+        </div>
       </div>
+    </div>
+
+    <!-- start button SECTION -->
+    <div class="row" id="start-button">
+      <div class="col-12 text-center align-items-center">
+        <button class="p-3 m-5" onclick="startGame()">START GAME</button>
+      </div>
+    </div>
+
+    <!-- game explanation SECTION -->
+
+    <div class="row my-2" id="how-to-section">
+      <div class="col-md-3"></div>
+      <div class="col-md-6  bg-dark border text-center text-light align-items-center">
+        <h2 class="my-3">How To Play</h2>
+        <h4 class="my-3">Welcome to Moon Miner! The goal of this game is to become the richest moon cheese miner around. In order to mine cheese you must click on the moon image. Watch out for your bucket filling. You must empty your bucket to add the cheese to your total. If your bucket fills up your cheese will fall out and not count towards your total. Make sure to buy rovers when you're rolling in the cheddar. They empty your bucket so you don't have to.</h4>
+      </div>
+      <div class="col-md-3"></div>
     </div>
 
     <!-- User Inventory SECTION -->
 
-    <div class="row my-5 mx-1 border border-primary text-light">
+    <div class="row my-5 mx-1 border border-primary text-light visually-hidden" id="user-inventory">
       <div class="col-12 inventory-scroll">
         <h3 class="text-center">User Inventory</h3>
 
         <div class="row my-1 border border-primary">
           <div class="col-6">
-            <h3>Current Cheese Mined: <span id="current-cheese-total"></span></h3>
+            <h3>Current Cheese Mined: <span class="text-primary" id="current-cheese-total"></span></h3>
           </div>
           <div class="col-6">
-            <h3>Total Cheese Earned: <span id="total-cheese-earned"></span></h3>
+            <h3>Total Cheese Earned: <span class="text-primary" id="total-cheese-earned"></span></h3>
           </div>
         </div>   
              
         <div class="row my-1 border border-primary text-light">
           <div class="col-6">
-            <h3>Current Cart Total: <span id="current-cart-total"></span></h3>
+            <h3>Current Cart Total: <span class="text-primary" id="current-cart-total"></span></h3>
           </div>
           <div class="col-6">
-            <h3>Current Cart Style: <span id="current-cart-style"></span></h3>
+            <h3>Current Cart Style: <span class="text-primary" id="current-cart-style"></span></h3>
           </div>
         </div>   
 
         <div class="row my-1 border border-primary text-light">
           <div class="col-6">
-            <h3>Current Rover Total: <span id="current-rover-total"></span></h3>
+            <h3>Current Rover Total: <span class="text-primary" id="current-rover-total"></span></h3>
           </div>
           <div class="col-6">
-            <h3>Current Click Style: <span id="current-click-style"></span></h3>
+            <h3>Current Click Style: <span class="text-primary" id="current-click-style"></span></h3>
           </div>
         </div>     
       </div>
