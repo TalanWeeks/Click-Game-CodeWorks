@@ -85,10 +85,14 @@ function mineCheese(){
 
 function updateInventory(){
   
+  // @ts-ignore
   document.getElementById('current-cheese-total').innerHTML = currentCheeseMined;
+  // @ts-ignore
   document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
   document.getElementById('current-click-style').innerText = clickUpgrades.bareHands.name;
   document.getElementById('current-cart-style').innerText = cartUpgrades.bucket.name;
+  // @ts-ignore
   document.getElementById('current-cart-total').innerHTML = currentCartTotal;
+  // @ts-ignore
   document.getElementById('current-rover-total').innerHTML = currentRoverTotal;  
 }
