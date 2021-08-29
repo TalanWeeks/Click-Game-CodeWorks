@@ -95,17 +95,6 @@ function critClick(){
   
 }
 
-// checks what cart upgrade we currently have SECTION
-// function checkCartStyle(){
-//   let cartSytle = 0
-//   if (cartUpgrades == bucket)
-// }
-
-// // NOTE keep working on cart functions
-// function checkCartAmount(){
-//   if (bucketCartStatus == 1)
-
-// }
 
 
 // BUYING ITEMS SECTION
@@ -142,10 +131,10 @@ function buyRover(){
 }
 
 function buyPickAxe(){
-  if (totalCheeseEarned < 100){
+  if (totalCheeseEarned < 50){
     alert("insufficient cheese funds to buy this upgrade")
-  } else if (totalCheeseEarned >= 100){
-    totalCheeseEarned -= 100
+  } else if (totalCheeseEarned >= 50){
+    totalCheeseEarned -= 50
   }
   updateInventory()
 }
@@ -180,13 +169,6 @@ function startRoverTimer(){
   }
   console.log("current rover total", currentRoverTotal)
 }
-  // function roverCartDump(){   
-  //   currentCartTotal -= (currentRoverTotal*100)
-  //   totalCheeseEarned += (currentRoverTotal*100)
-  //   document.getElementById('current-cart-total').innerHTML = currentCartTotal;
-  //   document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
-  //   console.log("current rover total",currentRoverTotal)
-  // } 
 
 function updateInventory(){
   
