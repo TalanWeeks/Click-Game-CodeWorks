@@ -34,7 +34,7 @@
 
   <header>
     <div class="row text-light">
-      <div class="col-12 text-center py-4 my-3 text-primary">
+      <div class="col-12 text-center my-3 text-primary">
         <h1>MOON MINER</h1>
       </div>
     </div>
@@ -50,7 +50,8 @@
         
 
         <!-- NOTE alert message pop up -->
-        <div class="col-md-2">
+        <div class="col-md-2 text-center d-flex align-items-center justify-content-center">
+          <button class="my-1 p-2"onclick="unloadCart()">Unload Cart</button>         
           <h3 id="pop-up-message"></h3>
         </div>
         
@@ -71,7 +72,7 @@
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Pick Axe</h5>
               <p>+5 cheese per click</p>
-              <h6>Cheese Required: 50</h6>
+              <h6>Cheese Required: 100</h6>
               <button class="bg-dark text-light" onclick="buyPickAxe()">Buy</button>
             </div>
           </div>        
@@ -80,7 +81,7 @@
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Super Saiyan Mode</h5>
               <p>+20 cheese per click</p>
-              <h6>Cheese Required: 400</h6>
+              <h6>Cheese Required: 1000</h6>
               <button class="bg-dark text-light" onclick="buySuperSaiyanMode()">Buy</button>
             </div>
           </div>
@@ -95,7 +96,7 @@
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Mine Cart</h5>
               <p> Holds 150 cheese</p>
-              <h6>Cheese Required: 100</h6>
+              <h6>Cheese Required: 150</h6>
               <button class="bg-dark text-light" onclick="buyMineCart()">Buy</button>
             </div>
           </div>        
@@ -104,7 +105,7 @@
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Dump Truck</h5>
               <p>Holds 500 cheese</p>
-              <h6>Cheese Required: 400</h6>
+              <h6>Cheese Required: 600</h6>
               <button class="bg-dark text-light" onclick="buyDumpTruck()" >Buy</button>
             </div>
           </div>
@@ -120,7 +121,7 @@
             <div class="card shadow text-dark p-2">
               <h5 class="text-primary">Auto Rover</h5>
               <p>auto dumps cheese container</p>
-              <h6>Cheese Required: 100</h6>
+              <h6>Cheese Required: 1000</h6>
               <button onclick="buyRover()" class="bg-dark text-light">Buy</button>
             </div>
           </div> 
@@ -149,7 +150,7 @@
 
     <!-- User Inventory SECTION -->
 
-    <div class="row my-5 mx-1 border border-primary text-light visually-hidden" id="user-inventory">
+    <div class="row mt-4 mx-1 border border-primary text-light visually-hidden" id="user-inventory">
       <div class="col-12 inventory-scroll">
         <h3 class="text-center">User Inventory</h3>
 
@@ -163,16 +164,13 @@
         </div>   
              
         <div class="row my-1 border border-primary text-light">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <h3>Current Cart Total: <span class="text-primary" id="current-cart-total"></span> </h3>
           </div>
 
-            <div class="col-md-2">
 
-              <button class="my-1"onclick="unloadCart()">Unload Cart</button>
-            </div>
             
-          <div class="col-md-4">
+          <div class="col-md-6">
             <h3>Current Cart Style: <span class="text-primary" id="current-cart-style"></span></h3>
           </div>
         </div>   
