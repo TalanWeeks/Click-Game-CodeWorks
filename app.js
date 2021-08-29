@@ -4,8 +4,7 @@ let currentCheeseMined = 0;
 let totalCheeseEarned = 0;
 let currentCartTotal = 0;
 let currentRoverTotal = 0;
-let currentCartStyle = '';
-
+let currentCartStyle = 1;
 let currentPickStyle = '';
 
 // Dictionaries
@@ -56,7 +55,8 @@ let rover = {
 }
 
 
-
+document.getElementById('current-click-style').innerText = clickUpgrades.bareHands.name;
+document.getElementById('current-cart-style').innerText = cartUpgrades.bucket.name;
 
 
 
@@ -76,7 +76,7 @@ function mineCheese(){
   
   currentCheeseMined +=1
   currentCartTotal += 1
-  console.log(currentCheeseMined)
+
   critClick()
   
   updateInventory()
@@ -96,16 +96,9 @@ function critClick(){
 }
 
 // checks what cart upgrade we currently have SECTION
-// function checkCartStyle(currentUpgrade){
-//   let bucketCartStatus = 0
-//   let mineCartStatus = 0
-//   let dumpTruckStatus = 0
-//   if (currentUpgrade == cartUpgrades.mineCart){
-//     mineCartStatus = 1
-//   } if (currentUpgrade == cartUpgrades.dumpTruck){
-//     dumpTruckStatus = 1
-//   } bucketCartStatus = 1
-//   checkCartAmount()
+// function checkCartStyle(){
+//   let cartSytle = 0
+//   if (cartUpgrades == bucket)
 // }
 
 // // NOTE keep working on cart functions
@@ -114,40 +107,86 @@ function critClick(){
 
 // }
 
-function buyRover(){
-  
-  // NOTE change back to 100
-  if (currentCheeseMined < 100){
+
+// BUYING ITEMS SECTION
+function buyMineCart(){
+  if (totalCheeseEarned < 100){
     alert("insufficient cheese funds to buy this upgrade")
-  } else if (currentCheeseMined >= 100){
-    currentCheeseMined -= 100
-    console.log(currentCheeseMined)
+  } else if (totalCheeseEarned >= 100)
+  totalCheeseEarned -= 100
+  currentCartStyle = 2
+  document.getElementById('current-cart-style').innerText = cartUpgrades.mineCart.name;
+  updateInventory()
+}
+function buyDumpTruck(){
+  if (totalCheeseEarned < 400){
+    alert("insufficient cheese funds to buy this upgrade")
+  } else if (totalCheeseEarned >= 400)
+  totalCheeseEarned -= 400
+  currentCartStyle = 3
+  document.getElementById('current-cart-style').innerText = cartUpgrades.dumpTruck.name;
+  updateInventory()
+}
+
+function buyRover(){  
+  // NOTE change back to 100
+  if (totalCheeseEarned < 100){
+    alert("insufficient cheese funds to buy this upgrade")
+  } else if (totalCheeseEarned >= 100){
+    totalCheeseEarned -= 100
+    console.log(totalCheeseEarned)
     currentRoverTotal ++
     startRoverTimer()
   }
-    document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
-    document.getElementById('current-rover-total').innerHTML = currentRoverTotal; 
-  
+    updateInventory()   
+}
+
+function buyPickAxe(){
+  if (totalCheeseEarned < 100){
+    alert("insufficient cheese funds to buy this upgrade")
+  } else if (totalCheeseEarned >= 100){
+    totalCheeseEarned -= 100
   }
+  updateInventory()
+}
 
-
+// UPDATING ITEMS SECTION
+function cartStyleStatus(){
+  let maxCartValue = 0
+  if(currentCartStyle>2){
+    maxCartValue = cartUpgrades.dumpTruck.quantity
+  } else if (currentCartStyle >1){
+    maxCartValue = cartUpgrades.mineCart.quantity
+  } else if (currentCartStyle >0){
+    maxCartValue = cartUpgrades.bucket.quantity
+  }
+  console.log("max cart value", maxCartValue)
+}
 
  function unloadCart(){
    let cartAmount = currentCartTotal
    totalCheeseEarned += cartAmount
    currentCartTotal -= cartAmount
+   currentCheeseMined -= cartAmount
    updateInventory()
  }
 function startRoverTimer(){
-  setInterval(roverCartDump,15000)
+  if(currentRoverTotal>2){
+    setInterval(unloadCart,8000)
+  } else if (currentRoverTotal >1){
+    setInterval(unloadCart,15000)
+  } else if (currentRoverTotal >0){
+    setInterval(unloadCart,20000)
+  }
+  console.log("current rover total", currentRoverTotal)
 }
-  function roverCartDump(){   
-    currentCartTotal -= (currentRoverTotal*100)
-    totalCheeseEarned += (currentRoverTotal*100)
-    document.getElementById('current-cart-total').innerHTML = currentCartTotal;
-    document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
-    console.log("current rover total",currentRoverTotal)
-  } 
+  // function roverCartDump(){   
+  //   currentCartTotal -= (currentRoverTotal*100)
+  //   totalCheeseEarned += (currentRoverTotal*100)
+  //   document.getElementById('current-cart-total').innerHTML = currentCartTotal;
+  //   document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
+  //   console.log("current rover total",currentRoverTotal)
+  // } 
 
 function updateInventory(){
   
@@ -155,8 +194,7 @@ function updateInventory(){
   document.getElementById('current-cheese-total').innerHTML = currentCheeseMined;
   // @ts-ignore
   document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
-  document.getElementById('current-click-style').innerText = clickUpgrades.bareHands.name;
-  document.getElementById('current-cart-style').innerText = cartUpgrades.bucket.name;
+
   // @ts-ignore
   document.getElementById('current-cart-total').innerHTML = currentCartTotal;
   // @ts-ignore
