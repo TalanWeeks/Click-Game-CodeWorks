@@ -5,7 +5,7 @@ let totalCheeseEarned = 0;
 let currentCartTotal = 0;
 let currentRoverTotal = 0;
 let currentCartStyle = '';
-let currentRoverStyle = '';
+
 let currentPickStyle = '';
 
 // Dictionaries
@@ -78,6 +78,7 @@ function mineCheese(){
   currentCartTotal += 1
   console.log(currentCheeseMined)
   critClick()
+  roverCartDump()
   updateInventory()
 }
 
@@ -95,16 +96,40 @@ function critClick(){
 }
 
 // checks what cart upgrade we currently have SECTION
-function checkCartStyle(currentUpgrade){
-  let bucketCartStatus = 0
-  let mineCartStatus = 0
-  let dumpTruckStatus = 0
-  if (currentUpgrade == cartUpgrades.mineCart){
-    mineCartStatus = 1
-  } if (currentUpgrade == cartUpgrades.dumpTruck){
-    dumpTruckStatus = 1
-  } bucketCartStatus = 1
+// function checkCartStyle(currentUpgrade){
+//   let bucketCartStatus = 0
+//   let mineCartStatus = 0
+//   let dumpTruckStatus = 0
+//   if (currentUpgrade == cartUpgrades.mineCart){
+//     mineCartStatus = 1
+//   } if (currentUpgrade == cartUpgrades.dumpTruck){
+//     dumpTruckStatus = 1
+//   } bucketCartStatus = 1
+//   checkCartAmount()
+// }
 
+// // NOTE keep working on cart functions
+// function checkCartAmount(){
+//   if (bucketCartStatus == 1)
+
+// }
+
+function buyRover(){
+  currentRoverTotal = 0
+  if (totalCheeseEarned < 100){
+    alert("insufficient cheese funds to buy this upgrade")
+  } else if (totalCheeseEarned >= 100){
+    currentRoverTotal += 1}
+    console.log("amount of rovers", currentRoverTotal)
+  roverCartDump()
+  }
+function roverCartDump(){
+  if (currentRoverTotal >= 1){
+    setInterval(() => {
+      currentCartTotal = currentCartTotal-(currentRoverTotal*100);
+    }, 10000);
+    
+  } 
 }
 function updateInventory(){
   
