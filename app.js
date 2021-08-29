@@ -131,6 +131,13 @@ function buyRover(){
   }
 
 
+
+ function unloadCart(){
+   let cartAmount = currentCartTotal
+   totalCheeseEarned += cartAmount
+   currentCartTotal -= cartAmount
+   updateInventory()
+ }
 function startRoverTimer(){
   setInterval(roverCartDump,15000)
 }
@@ -138,6 +145,7 @@ function startRoverTimer(){
     currentCartTotal -= (currentRoverTotal*100)
     totalCheeseEarned += (currentRoverTotal*100)
     document.getElementById('current-cart-total').innerHTML = currentCartTotal;
+    document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
     console.log("current rover total",currentRoverTotal)
   } 
 
