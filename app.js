@@ -50,7 +50,7 @@ let cartUpgrades = {
 
 let rover = {
   name: 'Moon Rover',
-  cost: 100,
+  cost: 600,
   quantity: 0, 
 }
 
@@ -65,13 +65,7 @@ document.getElementById('current-cart-style').innerText = cartUpgrades.bucket.na
 
 // NOTE adding to current cheese when moon is clicked
 
-function startGame(){
-  document.getElementById("start-button").classList.add("visually-hidden")
-  document.getElementById("how-to-section").classList.add("visually-hidden")
-  document.getElementById("purchase-inventory").classList.remove("visually-hidden")
-  document.getElementById("user-inventory").classList.remove("visually-hidden")
-  updateInventory()
-}
+
 function mineCheese(){
   
   currentCheeseMined +=1
@@ -82,7 +76,7 @@ function mineCheese(){
   updateInventory()
 }
 
-// NOTE keeping track of total cheese to manipulate later
+// CRITICAL CLICK SECTION
 
 function critClick(){
   let randomNum = Math.floor(Math.random()*10)
@@ -118,11 +112,10 @@ function buyDumpTruck(){
 }
 
 function buyRover(){  
-  // NOTE change back to 100
-  if (totalCheeseEarned < 100){
+  if (totalCheeseEarned < 600){
     alert("insufficient cheese funds to buy this upgrade")
-  } else if (totalCheeseEarned >= 100){
-    totalCheeseEarned -= 100
+  } else if (totalCheeseEarned >= 600){
+    totalCheeseEarned -= 600
     console.log(totalCheeseEarned)
     currentRoverTotal ++
     startRoverTimer()
@@ -152,6 +145,36 @@ function buySuperSaiyanMode(){
 }
 
 // UPDATING ITEMS SECTION
+
+function startGame(){
+  document.getElementById("start-button").classList.add("visually-hidden")
+  document.getElementById("how-to-section").classList.add("visually-hidden")
+  document.getElementById("purchase-inventory").classList.remove("visually-hidden")
+  document.getElementById("user-inventory").classList.remove("visually-hidden")
+  updateInventory()
+}
+
+function unloadCart(){
+  let cartAmount = currentCartTotal
+  totalCheeseEarned += cartAmount
+  currentCartTotal -= cartAmount
+  currentCheeseMined -= cartAmount
+  updateInventory()
+}
+
+function updateInventory(){  
+  // @ts-ignore
+  document.getElementById('current-cheese-total').innerHTML = currentCheeseMined;
+  // @ts-ignore
+  document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
+  // @ts-ignore
+  document.getElementById('current-cart-total').innerHTML = currentCartTotal;
+  // @ts-ignore
+  document.getElementById('current-rover-total').innerHTML = currentRoverTotal;  
+}
+
+
+// conditional functions SECTION
 function cartStyleStatus(){
   let maxCartValue = 0
   if(currentCartStyle>2){
@@ -170,13 +193,6 @@ function cartStyleStatus(){
 }
 
 
- function unloadCart(){
-   let cartAmount = currentCartTotal
-   totalCheeseEarned += cartAmount
-   currentCartTotal -= cartAmount
-   currentCheeseMined -= cartAmount
-   updateInventory()
- }
 function startRoverTimer(){
   if(currentRoverTotal>2){
     setInterval(unloadCart,8000)
@@ -188,15 +204,4 @@ function startRoverTimer(){
   console.log("current rover total", currentRoverTotal)
 }
 
-function updateInventory(){
-  
-  // @ts-ignore
-  document.getElementById('current-cheese-total').innerHTML = currentCheeseMined;
-  // @ts-ignore
-  document.getElementById('total-cheese-earned').innerHTML = totalCheeseEarned;
 
-  // @ts-ignore
-  document.getElementById('current-cart-total').innerHTML = currentCartTotal;
-  // @ts-ignore
-  document.getElementById('current-rover-total').innerHTML = currentRoverTotal;  
-}
