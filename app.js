@@ -77,12 +77,35 @@ function mineCheese(){
   currentCheeseMined +=1
   currentCartTotal += 1
   console.log(currentCheeseMined)
+  critClick()
   updateInventory()
 }
 
 // NOTE keeping track of total cheese to manipulate later
 
+function critClick(){
+  let randomNum = Math.floor(Math.random()*10)
+  if (randomNum >= 7) {
+    currentCheeseMined += 5
+    totalCheeseEarned += 5
+    currentCartTotal += 5
+    console.log("critical click!")
+  }
+  console.log(randomNum)
+}
 
+// checks what cart upgrade we currently have SECTION
+function checkCartStyle(currentUpgrade){
+  let bucketCartStatus = 0
+  let mineCartStatus = 0
+  let dumpTruckStatus = 0
+  if (currentUpgrade == cartUpgrades.mineCart){
+    mineCartStatus = 1
+  } if (currentUpgrade == cartUpgrades.dumpTruck){
+    dumpTruckStatus = 1
+  } bucketCartStatus = 1
+
+}
 function updateInventory(){
   
   // @ts-ignore
