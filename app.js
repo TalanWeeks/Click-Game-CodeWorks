@@ -208,9 +208,9 @@ function cartStyleStatus(){
   }
   console.log("max cart value", maxCartValue)
   if (maxCartValue < currentCartTotal){
+    alert("You must empty your cart to keep mining! Avoid this pop up by not letting your bucket reach the max fill.")
     currentCheeseMined --
     currentCartTotal --
-    alert("You must empty your cart to keep mining! Avoid this pop up by not letting your bucket reach the max fill.")
   }
 }
 
@@ -219,11 +219,11 @@ function startRoverTimer(){
     
   
    if(currentRoverTotal>4){
-    setInterval(unloadCart,8000)
+    setInterval(unloadCart,2000)
     document.getElementById("rover-price").innerText = '3600'
    }
    else if(currentRoverTotal>3){
-    setInterval(unloadCart,8000)
+    setInterval(unloadCart,5000)
     document.getElementById("rover-price").innerText = '3000'
    }
    else if(currentRoverTotal>2){
