@@ -58,9 +58,6 @@ let rover = {
 document.getElementById('current-click-style').innerText = clickUpgrades.bareHands.name;
 document.getElementById('current-cart-style').innerText = cartUpgrades.bucket.name;
 
-
-
-
 // functions
 
 // NOTE adding to current cheese when moon is clicked
@@ -87,8 +84,6 @@ function critClick(){
   }
   
 }
-
-
 
 // BUYING ITEMS SECTION
 function buyMineCart(){
@@ -179,7 +174,6 @@ function updateInventory(){
   document.getElementById('current-rover-total').innerHTML = currentRoverTotal;  
 }
 
-
 // conditional functions SECTION
 
 function clickUpgradeStatus(){
@@ -214,7 +208,6 @@ function cartStyleStatus(){
   }
 }
 
-
 function startRoverTimer(){
     
   
@@ -240,5 +233,3 @@ function startRoverTimer(){
   }
   console.log("current rover total", currentRoverTotal)
 }
-
-
