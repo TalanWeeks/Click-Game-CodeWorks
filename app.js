@@ -210,7 +210,7 @@ function cartStyleStatus(){
   if (maxCartValue < currentCartTotal){
     currentCheeseMined --
     currentCartTotal --
-    alert("You must empty your cart to keep mining!")
+    alert("You must empty your cart to keep mining! Avoid this pop up by not letting your bucket reach the max fill.")
   }
 }
 
