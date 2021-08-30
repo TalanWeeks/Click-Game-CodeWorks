@@ -80,7 +80,7 @@ function mineCheese(){
 
 function critClick(){
   let randomNum = Math.floor(Math.random()*10)
-  if (randomNum >= 8) {
+  if (randomNum >= 7) {
     currentCheeseMined += 5
     currentCartTotal += 5
     console.log("critical click!")
